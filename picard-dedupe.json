@@ -1,0 +1,362 @@
+{
+    "inputs": [{
+        "adapter": {
+            "position": 9,
+            "prefix": "READ_NAME_REGEX",
+            "separator": "="
+        },
+        "@id": "#read_name_regex",
+        "depth": 0,
+        "schema": ["null", "string"]
+    }, {
+        "adapter": {
+            "position": 9,
+            "prefix": "SORTING_COLLECTION_SIZE_RATIO",
+            "separator": "="
+        },
+        "@id": "#sorting_collections_size_ratio",
+        "depth": 0,
+        "schema": ["null", "int"]
+    }, {
+        "adapter": {
+            "position": 9,
+            "prefix": "MAX_FILE_HANDLES",
+            "separator": "="
+        },
+        "@id": "#max_file_handles_for_read_ends_map",
+        "depth": 0,
+        "schema": ["null", "string"]
+    }, {
+        "adapter": {
+            "position": 9,
+            "prefix": "MAX_SEQS",
+            "separator": "="
+        },
+        "@id": "#max_sequences_for_disk_read_ends_map",
+        "depth": 0,
+        "schema": ["null", "int"]
+    }, {
+        "adapter": {
+            "prefix": "AS",
+            "separator": "="
+        },
+        "@id": "#assume_sorted",
+        "depth": 0,
+        "schema": ["null", {
+            "symbols": ["true", "false"],
+            "type": "enum",
+            "name": "assume_sorted"
+        }]
+    }, {
+        "adapter": {
+            "position": 3,
+            "prefix": "REMOVE_DUPLICATES",
+            "separator": "="
+        },
+        "@id": "#remove_duplicates",
+        "depth": 0,
+        "schema": ["null", {
+            "symbols": ["true", "false"],
+            "type": "enum",
+            "name": "remove_duplicates"
+        }]
+    }, {
+        "adapter": {
+            "position": 9,
+            "prefix": "COMMENT",
+            "separator": "="
+        },
+        "@id": "#comment",
+        "depth": 0,
+        "schema": ["null", "string"]
+    }, {
+        "adapter": {
+            "position": 9,
+            "prefix": "PG_NAME",
+            "separator": "="
+        },
+        "@id": "#program_group_name",
+        "depth": 0,
+        "schema": ["null", "string"]
+    }, {
+        "adapter": {
+            "position": 9,
+            "prefix": "PG_COMMAND",
+            "separator": "="
+        },
+        "@id": "#program_group_command_line",
+        "depth": 0,
+        "schema": ["null", "string"]
+    }, {
+        "adapter": {
+            "position": 9,
+            "prefix": "PG_VERSION",
+            "separator": "="
+        },
+        "@id": "#program_group_ver",
+        "depth": 0,
+        "schema": ["null", "string"]
+    }, {
+        "adapter": {
+            "position": 10,
+            "prefix": "PG",
+            "separator": "="
+        },
+        "@id": "#program_record",
+        "depth": 0,
+        "schema": ["null", "string"]
+    }, {
+        "adapter": {
+            "position": 6,
+            "prefix": "VERBOSITY",
+            "separator": "="
+        },
+        "@id": "#verbosity",
+        "depth": 0,
+        "schema": ["null", {
+            "symbols": ["ERROR", "WARNING", "INFO", "DEBUG"],
+            "type": "enum",
+            "name": "verbosity"
+        }]
+    }, {
+        "depth": 0,
+        "@id": "#output_type",
+        "schema": ["null", {
+            "symbols": ["BAM", "SAM", "Same as input"],
+            "type": "enum",
+            "name": "output_type"
+        }]
+    }, {
+        "adapter": {
+            "position": 5,
+            "prefix": "CREATE_INDEX",
+            "separator": "="
+        },
+        "@id": "#create_index",
+        "depth": 0,
+        "schema": ["null", {
+            "symbols": ["True", "False"],
+            "type": "enum",
+            "name": "create_index"
+        }]
+    }, {
+        "adapter": {
+            "position": 4,
+            "prefix": "QUIET",
+            "separator": "="
+        },
+        "@id": "#quiet",
+        "depth": 0,
+        "schema": ["null", {
+            "symbols": ["True", "False"],
+            "type": "enum",
+            "name": "quiet"
+        }]
+    }, {
+        "adapter": {
+            "position": 4,
+            "prefix": "VALIDATION_STRINGENCY",
+            "separator": "="
+        },
+        "@id": "#validation_stringency",
+        "depth": 0,
+        "schema": ["null", {
+            "symbols": ["STRICT", "LENIENT", "SILENT"],
+            "type": "enum",
+            "name": "validation_stringency"
+        }]
+    }, {
+        "adapter": {
+            "position": 4,
+            "prefix": "COMPRESSION_LEVEL",
+            "separator": "="
+        },
+        "@id": "#compression_level",
+        "depth": 0,
+        "schema": ["null", "int"]
+    }, {
+        "adapter": {
+            "position": 4,
+            "prefix": "MAX_RECORDS_IN_RAM",
+            "separator": "="
+        },
+        "@id": "#max_records_in_ram",
+        "depth": 0,
+        "schema": ["null", "int"]
+    }, {
+        "adapter": {
+            "position": 9,
+            "prefix": "OPTICAL_DUPLICATE_PIXEL_DISTANCE",
+            "separator": "="
+        },
+        "@id": "#optical_duplicate_pixel_distance",
+        "depth": 0,
+        "schema": ["null", "int"]
+    }, {
+        "adapter": {
+            "prefix": "I",
+            "separator": "=",
+            "order": 0
+        },
+        "@id": "#input_bam",
+        "depth": 0,
+        "schema": ["file"]
+    }],
+    "sbg:categories": ["BAM/SAM Processing", "Picard"],
+    "description": "",
+    "sbg:sbgMaintained": false,
+    "sbg:modifiedOn": 1430310590,
+    "outputs": [{
+        "adapter": {
+            "glob": {
+                "lang": "javascript",
+                "@type": "Transform",
+                "value": "{\n  filename = $job.inputs.input_bam.path\n\n    return filename.split('.').slice(0, filename.split('.').length-1).concat(\"metrics\").join(\".\").replace(/^.*[\\\\\\/]/, '')\n\n}"
+            },
+            "metadata": {
+                "file_type": "txt",
+                "__inherit__": "input_bam"
+            }
+        },
+        "@id": "#metrics_file",
+        "depth": 0,
+        "schema": ["null", "file"]
+    }, {
+        "adapter": {
+            "secondaryFiles": [".bai"],
+            "glob": {
+                "lang": "javascript",
+                "@type": "Transform",
+                "value": "{\n  filename = $job.inputs.input_bam.path\n  ext = $job.inputs.output_type\n\nif (ext === \"BAM\")\n{\n    return filename.split('.').slice(0, filename.split('.').length-1).concat(\"deduped.bam\").join(\".\").replace(/^.*[\\\\\\/]/, '')\n    }\n\nelse if (ext === \"SAM\")\n{\n    return filename.split('.').slice(0, filename.split('.').length-1).concat(\"deduped.sam\").join('.').replace(/^.*[\\\\\\/]/, '')\n}\n\nelse \n{\n\treturn filename.split('.').slice(0, filename.split('.').length-1).concat(\"deduped.\"+filename.split('.')[filename.split('.').length-1]).join(\".\").replace(/^.*[\\\\\\/]/, '')\n}\n}"
+            },
+            "metadata": {
+                "file_type": {
+                    "lang": "javascript",
+                    "@type": "Transform",
+                    "value": "$self.split(\".\")[$self.split(\".\").length -1]"
+                },
+                "__inherit__": "input_bam"
+            }
+        },
+        "@id": "#deduped_bam",
+        "depth": 0,
+        "schema": ["null", "file"]
+    }],
+    "sbg:contributors": ["admin", "luka.stojanovic"],
+    "sbg:validationErrors": ["Union item must be a valid Avro schema: Could not make an Avro Schema object from file.", "Union item must be a valid Avro schema: Could not make an Avro Schema object from file.", "Union item must be a valid Avro schema: Could not make an Avro Schema object from file."],
+    "sbg:projectId": "836f25c1-4d69-4c0e-96c7-83aeff9b6f9a",
+    "requirements": [{
+        "imgTag": "",
+        "imgRepo": "djordjeklisic/picard_1.126:no_R",
+        "imgId": "9b6931a56d30",
+        "@type": "DockerCnt"
+    }, {
+        "@type": "CpuRequirement",
+        "value": 1
+    }, {
+        "@type": "MemRequirement",
+        "value": 1000
+    }],
+    "@id": "https://rabix-vayu.sbgenomics.com:11180/v1/apps/luka.stojanovic/picard/picard-dedupe/6/",
+    "sbg:projectSlug": "luka.stojanovic/picard",
+    "sbg:revision": 6,
+    "sbg:latestRevision": 15,
+    "sbg:createdOn": 1429478809,
+    "sbg:modifiedBy": "admin",
+    "sbg:toolkit": "Picard",
+    "sbg:toolkitVersion": "1.66",
+    "sbg:tagline": "Read SAM and perform various fix-ups. Currently, the only fix-ups are 1: to soft-clip an alignment …",
+    "label": "Picard dedupe",
+    "cliAdapter": {
+        "stdin": "",
+        "baseCmd": ["java", "-jar", "/picard-tools-1.126/picard.jar", "MarkDuplicates"],
+        "argAdapters": [{
+            "prefix": "M",
+            "separator": "=",
+            "order": 4,
+            "value": {
+                "lang": "javascript",
+                "@type": "Transform",
+                "value": "{\n  filename = $job.inputs.input_bam.path\n\n    return filename.split('.').slice(0, filename.split('.').length-1).concat(\"metrics\").join(\".\").replace(/^.*[\\\\\\/]/, '')\n\n}"
+            }
+        }, {
+            "prefix": "O",
+            "separator": "=",
+            "order": 2,
+            "value": {
+                "lang": "javascript",
+                "@type": "Transform",
+                "value": "{\n  filename = $job.inputs.input_bam.path\n  ext = $job.inputs.output_type\n\nif (ext === \"BAM\")\n{\n    return filename.split('.').slice(0, filename.split('.').length-1).concat(\"deduped.bam\").join(\".\").replace(/^.*[\\\\\\/]/, '')\n    }\n\nelse if (ext === \"SAM\")\n{\n    return filename.split('.').slice(0, filename.split('.').length-1).concat(\"deduped.sam\").join('.').replace(/^.*[\\\\\\/]/, '')\n}\n\nelse \n{\n\treturn filename.split('.').slice(0, filename.split('.').length-1).concat(\"deduped.\"+filename.split('.')[filename.split('.').length-1]).join(\".\").replace(/^.*[\\\\\\/]/, '')\n}\n}"
+            }
+        }],
+        "stdout": ""
+    },
+    "sbg:revisionsInfo": [{
+        "sbg:modifiedBy": "luka.stojanovic",
+        "sbg:modifiedOn": 1429478809,
+        "sbg:revision": 0
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1429778846,
+        "sbg:revision": 1
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1429780181,
+        "sbg:revision": 2
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1430310590,
+        "sbg:revision": 6
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1430323751,
+        "sbg:revision": 7
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1430323754,
+        "sbg:revision": 8
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1430324121,
+        "sbg:revision": 10
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1430324069,
+        "sbg:revision": 9
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1430324122,
+        "sbg:revision": 11
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1429886160,
+        "sbg:revision": 3
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1429890232,
+        "sbg:revision": 4
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1430210204,
+        "sbg:revision": 5
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1430746559,
+        "sbg:revision": 12
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1430746623,
+        "sbg:revision": 13
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1430746632,
+        "sbg:revision": 14
+    }, {
+        "sbg:modifiedBy": "admin",
+        "sbg:modifiedOn": 1430746943,
+        "sbg:revision": 15
+    }],
+    "@context": "https://github.com/common-workflow-language/common-workflow-language/blob/draft-1/specification/tool-description.md",
+    "sbg:createdBy": "luka.stojanovic",
+    "@type": "CommandLine"
+}

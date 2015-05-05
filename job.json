@@ -1,0 +1,13 @@
+{
+    "inputs": {
+        "assume_sorted": "true",
+        "output_type": "SAM",
+        "remove_duplicates": "false",
+        "create_index": "True",
+        "max_file_handles_for_read_ends_map": "213"
+    },
+    "allocatedResources": {
+        "cpu": 4,
+        "mem": 6000
+    }
+}
