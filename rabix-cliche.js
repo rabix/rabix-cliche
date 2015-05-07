@@ -6,7 +6,7 @@ var colors = require('colors');
 var jsonPath = process.argv[2];
 var jobPath = process.argv[3];
 
-var Cliche = require('./cliche');
+var Cliche = require('./cliche/cliche');
 
 var makeCMD = function (tool, job) {
     Cliche.setJob(job);
