@@ -1,6 +1,6 @@
 {
     "name": "rabix-cliche",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Rabix command line generator",
     "preferGlobal": true,
     "dependencies": {
@@ -16,6 +16,17 @@
     "bin": {
         "rabix-cliche": "index.js"
     },
-    "author": "rabix",
+	"keywords": [
+		"command line",
+		"cmd",
+		"rabix",
+		"cliche",
+		"rabix-cliche",
+		"command line builder",
+		"common workflow language",
+		"cwl",
+		"draft2"
+	],
+    "author": "Filip Jelic <filip.jelic@sbgenomics.com>",
     "license": "BSD-2-Clause"
 }
