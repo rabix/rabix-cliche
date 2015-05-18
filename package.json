@@ -14,7 +14,7 @@
         "test": ""
     },
     "bin": {
-        "rabix-cliche": "rabix-cliche.js"
+        "rabix-cliche": "index.js"
     },
     "author": "rabix",
     "license": "BSD-2-Clause"
