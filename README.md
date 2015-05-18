@@ -2,8 +2,10 @@
 
 Rabix tool command line generator
 
-
 ## Install
+- `npm install rabix-cliche -g` // this will install rabix-cliche globally which is preferred
+
+## Development Install
 
 - Clone repository
 - Install node and npm

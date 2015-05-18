@@ -1,6 +1,6 @@
 {
     "name": "rabix-cliche",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Rabix command line generator",
     "preferGlobal": true,
     "dependencies": {
