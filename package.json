@@ -1,18 +1,21 @@
 {
-  "name": "rabix-cliche",
-  "version": "0.0.1",
-  "description": "Rabix command line generator",
-  "main": "rabix-cliche.js",
-  "dependencies": {
-    "lodash": "~3.8.0",
-    "colors": "~1.1.0",
-    "q": "~1.3.0",
-    "webworker-threads": "~0.5.5"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": ""
-  },
-  "author": "rabix",
-  "license": "BSD-2-Clause"
+    "name": "rabix-cliche",
+    "version": "0.1.0",
+    "description": "Rabix command line generator",
+    "preferGlobal": true,
+    "dependencies": {
+        "lodash": "~3.8.0",
+        "colors": "~1.1.0",
+        "q": "~1.3.0",
+        "webworker-threads": "~0.5.5"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": ""
+    },
+    "bin": {
+        "rabix-cliche": "rabix-cliche.js"
+    },
+    "author": "rabix",
+    "license": "BSD-2-Clause"
 }
